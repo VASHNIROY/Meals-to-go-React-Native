@@ -23,10 +23,10 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     address,
     isOpenNow,
     vicinity,
+    placeId,
     rating,
     isClosedTemporarily,
   } = restaurant;
-
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
 
@@ -37,8 +37,8 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         <Texttypo variant="label">{name}</Texttypo>
         <Section>
           <Rating>
-            {ratingArray.map(() => (
-              <StarSvg width={20} height={20} />
+            {ratingArray.map((_, i) => (
+              <StarSvg key={`star-${placeId}-${i}`} width={20} height={20} />
             ))}
           </Rating>
           <SectionEnd>
