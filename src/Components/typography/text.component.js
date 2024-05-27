@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { Text } from "react-native";
 
 const defaultTextStyles = (theme) => `
   font-family: ${theme.fonts.body};
@@ -40,11 +41,11 @@ const variants = {
   hint,
 };
 
-export const Texttypo = styled.Text`
+export const Texttypo = styled(Text)`
   ${({ theme }) => defaultTextStyles(theme)}
   ${({ variant, theme }) => variants[variant](theme)}
 `;
 
-Text.defaultProps = {
-  variant: "body",
-};
+// Text.defaultProps = {
+//   variant: "body",
+// };

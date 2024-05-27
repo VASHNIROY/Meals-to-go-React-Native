@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-
 import { FlatList, TouchableOpacity } from "react-native";
 import { SafeArea } from "../../../Components/utility/safe-area.component";
 import styled from "styled-components/native";

@@ -23,10 +23,10 @@ export const RestaurantDetailScreen = ({ route }) => {
           expanded={breakfastExpanded}
           onPress={() => setBreakfaseExpanded(!breakfastExpanded)}
         >
-          <List.Item title="Eggs Bendict" />
-          <List.Item title="Eggs Bendict" />
+          <List.Item title="Eggs Bendict1" />
+          <List.Item title="Eggs Bendict2" />
 
-          <List.Item title="Eggs Bendict" />
+          <List.Item title="Eggs Bendict3" />
         </List.Accordion>
         <List.Accordion
           title="Lunch"
@@ -34,9 +34,9 @@ export const RestaurantDetailScreen = ({ route }) => {
           expanded={lunchExpanded}
           onPress={() => setLunchExpanded(!lunchExpanded)}
         >
-          <List.Item title="Eggs Bendict" />
-          <List.Item title="Eggs Bendict" />
-          <List.Item title="Eggs Bendict" />
+          <List.Item title="Eggs Omlette1" />
+          <List.Item title="Eggs Omlette2" />
+          <List.Item title="Eggs Omlette3" />
         </List.Accordion>
         <List.Accordion
           title="Dinner"
@@ -44,10 +44,9 @@ export const RestaurantDetailScreen = ({ route }) => {
           expanded={dinnerExpanded}
           onPress={() => setDinnerExpanded(!dinnerExpanded)}
         >
-          {" "}
-          <List.Item title="Eggs Bendict" />
-          <List.Item title="Eggs Bendict" />
-          <List.Item title="Eggs Bendict" />
+          <List.Item title="Eggs Omlette1" />
+          <List.Item title="Eggs Omlette2" />
+          <List.Item title="Eggs Omlette3" />
         </List.Accordion>
         <List.Accordion
           title="Drinks"
@@ -55,10 +54,9 @@ export const RestaurantDetailScreen = ({ route }) => {
           expanded={drinksExpanded}
           onPress={() => setDrinksExpanded(!drinksExpanded)}
         >
-          {" "}
-          <List.Item title="Eggs Bendict" />
-          <List.Item title="Eggs Bendict" />
-          <List.Item title="Eggs Bendict" />
+          <List.Item title="Eggs Omlette1" />
+          <List.Item title="Eggs Omlette2" />
+          <List.Item title="Eggs Omlette3" />
         </List.Accordion>
       </ScrollView>
     </SafeArea>

@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { useTheme } from "styled-components/native";
+import { Text } from "react-native";
 
 const sizeVariant = {
   small: 1,
@@ -21,7 +22,7 @@ const getVariant = (position, size, theme) => {
   return `${property}: ${value}`;
 };
 
-const SpacerView = styled.Text`
+const SpacerView = styled(Text)`
   ${({ variant }) => variant}
 `;
 
