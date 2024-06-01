@@ -14,6 +14,7 @@ import {
   Section,
   SectionEnd,
 } from "./restaurant-info-card.styles.js";
+import { Favourite } from "../../../Components/favourites/favourite.component.js";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
@@ -27,12 +28,19 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     rating,
     isClosedTemporarily,
   } = restaurant;
+  console.log("restaurant image", restaurant);
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
 
   return (
     <RestaurantCard elevation={5}>
-      <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
+      <Favourite restaurant={restaurant} />
+      <RestaurantCardCover
+        key={name}
+        source={{
+          uri: "https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg",
+        }}
+      />
       <Info>
         <Texttypo variant="label">{name}</Texttypo>
         <Section>

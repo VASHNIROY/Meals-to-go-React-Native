@@ -10,9 +10,7 @@ export const RestaurantsContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const { location } = useContext(LocationContext);
-  console.log("location in res context", location);
   const retriveRestaurants = (loc) => {
-    console.log("loc", loc);
     setIsLoading(true);
     setRestaurants([]);
     setTimeout(() => {

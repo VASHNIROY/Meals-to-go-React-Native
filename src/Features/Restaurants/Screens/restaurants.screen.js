@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FlatList, TouchableOpacity } from "react-native";
 import { SafeArea } from "../../../Components/utility/safe-area.component";
 import styled from "styled-components/native";
@@ -6,6 +6,9 @@ import { RestaurantInfoCard } from "../Components/restaurant-info.component";
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import { ActivityIndicator, Colors } from "react-native-paper";
 import { Search } from "../Components/search.component";
+import { FavouritesBar } from "../../../Components/favourites/favourites-bar.component";
+import { FavouritesContext } from "../../../services/favourites/favourites.context";
+import { FadeInView } from "../../../Components/animations/fade.animation";
 
 const RestaurantListContainer = styled.View`
   flex: 1;
@@ -30,6 +33,8 @@ const LoadingContainer = styled.View`
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, error, restaurants } = useContext(RestaurantsContext);
+  const [isToggled, setIsToggled] = useState(false);
+  const { favourites } = useContext(FavouritesContext);
   return (
     <SafeArea>
       {isLoading && (
@@ -42,7 +47,16 @@ export const RestaurantsScreen = ({ navigation }) => {
           />
         </LoadingContainer>
       )}
-      <Search />
+      <Search
+        isFavouritesToggled={isToggled}
+        onFavouritesToggle={() => setIsToggled(!isToggled)}
+      />
+      {isToggled && (
+        <FavouritesBar
+          favourites={favourites}
+          onNavigate={navigation.navigate}
+        />
+      )}
       <RestaurantListContainer>
         <RestaurantList
           data={restaurants}
@@ -55,7 +69,9 @@ export const RestaurantsScreen = ({ navigation }) => {
                   })
                 }
               >
-                <RestaurantInfoCard restaurant={item} />
+                <FadeInView>
+                  <RestaurantInfoCard restaurant={item} />
+                </FadeInView>
               </TouchableOpacity>
             );
           }}
